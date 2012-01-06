@@ -1,9 +1,14 @@
-(library
-  (fd)
-  (export
+#lang racket
+
+(provide
     infd domfd =fd =/=fd <=fd <fd
     plusfd distinctfd range)
-  (import (rnrs) (ck))
+
+(require "ck.scm"
+         "mk.scm"
+         "chezutils.rkt"
+         (rename-in racket/base
+                    (findf find)))
 
 ;;; helpers
 
@@ -405,8 +410,4 @@
     (goal-construct (distinctfd-c v*))))
 
 (extend-enforce-fns 'fd enforce-constraintsfd)
-
-)
-
-(import (fd))
 

@@ -1,4 +1,5 @@
 #lang racket
 
-(require "ck.scm")
-(require "tree-unify.scm")
+(require "ck.scm"
+         "tree-unify.scm"
+         "fd.scm")
