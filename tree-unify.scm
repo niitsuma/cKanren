@@ -1,7 +1,7 @@
-(library
-  (tree-unify)
-  (export == unify)
-  (import (rnrs) (ck))
+#lang racket
+(provide == unify)
+(require "mk.scm"
+         "ck.scm")
 
 ;; ---UNIFICATION--------------------------------------------------
 
@@ -62,8 +62,3 @@
           (composem
             (update-s (caar s^) (cdar s^))
             (loop (cdr s^))))))))
-
-)
-
-(import (tree-unify))
-

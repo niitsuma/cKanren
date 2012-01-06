@@ -1,19 +1,17 @@
-(library 
-  (ck)
+#lang racket
 
-  (export
+(provide
     ;; framework
     update-s update-c make-a any/var? prefix-s
     lambdam@ identitym composem goal-construct ext-c
     build-oc oc->proc oc->rands oc->rator run run* prt
-    extend-enforce-fns extend-reify-fns
-
+    extend-enforce-fns extend-reify-fns)
+#|
     ;; mk
     lhs rhs walk walk* var? lambdag@ mzerog unitg onceo
     conde conda condu ifa ifu project fresh :)
-  
-  (import (rnrs) (mk)
-    (only (chezscheme) make-parameter))
+|#
+(require "mk.scm")
 
 ;; ---HELPERS------------------------------------------------------
 
@@ -248,7 +246,3 @@
     ((_ (x) g ...) (run #f (x) g ...))))
 
 ;; ----------------------------------------------------------------
-
-)
-
-(import (ck))

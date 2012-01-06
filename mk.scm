@@ -1,12 +1,11 @@
-(library
-  (mk)
+#lang racket
 
-  (export
-    var var? rhs lhs lambdag@ walk walk* mzerog unitg
+(provide
+ var var? rhs lhs lambdag@ walk walk* mzerog unitg
     choiceg lambdaf@ : take empty-f conde conda ifa
     condu ifu fresh project onceo succeed fail prt)
 
-  (import (rnrs) (only (chezscheme) pretty-print))
+(require racket/pretty)
 
 (define var
   (lambda (x)
@@ -26,7 +25,7 @@
 
 (define-syntax :
   (lambda (x)
-    (syntax-violation 'mk "misplaced aux keyword" x)))
+    (raise-syntax-error 'mk "misplaced aux keyword" x)))
 
 (define-syntax lambdag@
   (syntax-rules (:)
@@ -187,7 +186,3 @@
          ((fresh () g g* ...) a))))))
 
 (define onceo (lambda (g) (condu (g))))
-
-)
-
-(import (mk))
