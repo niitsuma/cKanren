@@ -1,0 +1,9 @@
+To use cKanren under Racket, do the following in the
+DrRacket definitions window.
+
+#lang racket
+
+(require "<path to ckanren.rkt>")
+
+<cKanren program follows>
+
