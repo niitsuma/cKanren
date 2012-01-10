@@ -1,7 +1,8 @@
-(load "tester.scm")
-(load "ck.scm")
-(load "tree-unify.scm")
-(load "neq.scm")
+#lang cKanren
+(require "tester.scm")
+;(load "ck.scm")
+;(load "tree-unify.scm")
+;(load "neq.scm")
 
 (define distincto
   (lambda (l)
@@ -431,21 +432,21 @@
   (run* (q) (rembero 'a '(a b c) '(a b c)))
   '(_.0))
 
-(define rembero
+(define rembero-new
   (lambda (x ls out)
     (conde
       ((== '() ls) (== '() out))
       ((fresh (a d res)
          (== `(,a . ,d) ls)
-         (rembero x d res)
+         (rembero-new x d res)
          (conde
            ((== a x) (== out res))
            ((=/= a x) (== `(,a . ,res) out))))))))
 
 (test-check "=/=-53"
-  (run* (q) (rembero 'a '(a b a c) q))
+  (run* (q) (rembero-new 'a '(a b a c) q))
   '((b c)))
 
 (test-check "=/=-54"
-  (run* (q) (rembero 'a '(a b c) '(a b c)))
+  (run* (q) (rembero-new 'a '(a b c) '(a b c)))
   '())

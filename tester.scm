@@ -1,7 +1,5 @@
-(library
-  (tester)
-  (export test-check test-divergence)
-  (import (chezscheme))
+#lang racket
+(provide test-check test-divergence)
 
 (define (cout . args)
   (for-each
@@ -42,7 +40,5 @@
                v (- max-ticks t)))
            (lambda (e^) (void))))))))
 
-)
 
-(import (tester))
 

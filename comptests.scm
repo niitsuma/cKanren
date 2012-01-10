@@ -1,6 +1,5 @@
-(load "ck.scm")
-(load "fd.scm")
-(load "neq.scm")
+#lang cKanren
+(require "tester.scm")
 
 (define n-queenso
   (lambda (q n)

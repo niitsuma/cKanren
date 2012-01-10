@@ -1,7 +1,5 @@
-(load "tester.scm")
-(load "ck.scm")
-(load "fd.scm")
-(load "tree-unify.scm")
+#lang cKanren
+(require "tester.scm")
 
 ;; (test-check "-1"
 ;;   (run* (q)
@@ -210,18 +208,18 @@
 
 ;;; ((1 2 3))
   
-(define send-more-moneyo
-  (lambda (letters)
-    (fresh (s e n d m o r y carry0 carry1 carry2)
-      (== letters `(,s ,e ,n ,d ,m ,o ,r ,y))
-      (distinctfd letters)
-      (infd s m (range 1 9))
-      (infd e n d o r y (range 0 9))
-      (infd carry0 carry1 carry2 (range 0 1))      
-      (add-digitso d e 0 carry0 y)
-      (add-digitso n r carry0 carry1 e)
-      (add-digitso e o carry1 carry2 n)
-      (add-digitso s m carry2 m o))))
+;; (define send-more-moneyo
+;;   (lambda (letters)
+;;     (fresh (s e n d m o r y carry0 carry1 carry2)
+;;       (== letters `(,s ,e ,n ,d ,m ,o ,r ,y))
+;;       (distinctfd letters)
+;;       (infd s m (range 1 9))
+;;       (infd e n d o r y (range 0 9))
+;;       (infd carry0 carry1 carry2 (range 0 1))      
+;;       (add-digitso d e 0 carry0 y)
+;;       (add-digitso n r carry0 carry1 e)
+;;       (add-digitso e o carry1 carry2 n)
+;;       (add-digitso s m carry2 m o))))
 
 (define send-more-moneyo
   (lambda (letters)

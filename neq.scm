@@ -1,8 +1,9 @@
-(library
-  (neq)
-  (export =/=)
-  (import (rnrs) (ck)
-    (only (tree-unify) unify))
+#lang racket
+(provide =/=)
+(require "ck.scm"
+         "mk.scm"
+         "chezutils.rkt"
+         (only-in "tree-unify.scm" unify))
 
 ;;; little helpers
 
@@ -92,6 +93,3 @@
 
 (extend-reify-fns 'neq reify-constraintsneq)
 
-)
-
-(import (neq))
