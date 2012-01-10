@@ -6,4 +6,4 @@
   (filter (compose not proc) lst))
 
 (define (list-sort pred lst)
-  (sort pred lst))
+  (sort lst pred))
