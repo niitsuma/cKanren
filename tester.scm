@@ -1,12 +1,6 @@
 #lang racket
 (provide test-check test-divergence)
 
-(define (cout . args)
-  (for-each
-    (lambda (x)
-      (if (procedure? x) (x) (display x)))
-    args))
-
 (define test-error
   (lambda (tag . args)
     (printf "Failed: ~s: ~%" tag)
@@ -17,7 +11,7 @@
   (syntax-rules ()
     ((_ title tested-expression expected-result)
      (begin
-       (cout "Testing " title (string #\newline))
+       (printf "Testing ~a\n" title)
        (let* ((expected expected-result)
               (produced tested-expression))
          (or (equal? expected produced)
@@ -31,7 +25,7 @@
   (syntax-rules ()
     ((_ title tested-expression)
      (begin
-       (cout "Testing ~s (engine with ~s ticks fuel)\n" title max-ticks)
+       (printf "Testing ~s (engine with ~s ticks fuel)\n" title max-ticks)
        (let ((eng (make-engine (lambda () tested-expression))))
          (eng max-ticks
            (lambda (t v)
