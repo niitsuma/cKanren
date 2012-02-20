@@ -2,7 +2,9 @@
 
 (provide never-trueo never-pairo requiredo allowedo)
 (require "ck.scm"
-         "mk.scm")
+         "mk.scm"
+         (rename-in racket/base
+                    (findf find)))
 
 (define never-true-c
   (lambda (pred? x)
