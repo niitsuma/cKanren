@@ -1,4 +1,7 @@
-#lang cKanren
+#lang racket
+
+(require cKanren)
+
 (require "tester.scm")
 ;(load "ck.scm")
 ;(load "tree-unify.scm")

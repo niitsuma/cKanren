@@ -7,13 +7,23 @@
 
 (require racket/pretty)
 
-(define var
-  (lambda (x)
-    (vector x)))
+;; (define var
+;;   (lambda (x)
+;;     (vector x)))
 
-(define var?
-  (lambda (x)
-    (vector? x)))
+;; (define var?
+;;   (lambda (x)
+;;     (vector? x)))
+
+(require srfi/9)
+
+(define-record-type *logical-variable*
+  (make-logical-variable name) logical-variable?
+  (name logical-variable-id))
+
+(define var  make-logical-variable)
+(define var? logical-variable?)
+
 
 (define rhs
   (lambda (x)
