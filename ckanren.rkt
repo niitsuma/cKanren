@@ -2,12 +2,16 @@
 
 (require "ck.scm"
          "mk.scm"
-         "tree-unify.scm"
-         "fd.scm"
+         "tree-unify.scm"	 
+         ;"fd.scm"
          "miniKanren.scm"
+	 "matche.scm"
          "neq.scm"
          "never-true.scm"
          "tracing.scm")
 
-(provide (all-from-out "ck.scm" "mk.scm" "tree-unify.scm" "fd.scm" "miniKanren.scm" "neq.scm" "never-true.scm" "tracing.scm")
+(provide (all-from-out "ck.scm" "mk.scm" "tree-unify.scm" 
+		       "matche.scm"
+		       ;"fd.scm" 
+		       "miniKanren.scm" "neq.scm" "never-true.scm" "tracing.scm")
          (all-from-out racket))

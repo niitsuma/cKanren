@@ -10,6 +10,21 @@ do:
 
 $ raco link .
 
+
+
+
+
 Fireup DrRacket and in the definitions window use:
 
 #lang cKanren
+
+
+
+another way
+
+$ ln -s ckanren.rkt main.rkt
+
+#lang racket
+(require cKanren)
+
+It better for emacs user

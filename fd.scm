@@ -6,12 +6,14 @@
 
 (require "ck.scm"
          "mk.scm"
+	 "finite-domain.scm"
          "chezutils.rkt"
+
          (rename-in racket/base
                     (findf find)))
 ;;; helpers
 
-(define list-sort rnrs:list-sort)
+;(define list-sort rnrs:list-sort)
 
 (define list-sorted?
   (lambda (pred ls)
